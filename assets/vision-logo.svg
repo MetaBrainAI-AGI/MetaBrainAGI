@@ -1,0 +1,55 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vision by MetaBrainAGI">
+  <defs>
+    <radialGradient id="vCore" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#bfa8ff"/>
+      <stop offset="38%" stop-color="#804efa"/>
+      <stop offset="100%" stop-color="#3a1f8f"/>
+    </radialGradient>
+    <linearGradient id="vRing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5e8"/>
+      <stop offset="55%" stop-color="#5b8cff"/>
+      <stop offset="100%" stop-color="#9a5cff"/>
+    </linearGradient>
+    <linearGradient id="vBeam" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#e9f7ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#00c5c7" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="vGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- deep canvas badge -->
+  <circle cx="256" cy="256" r="240" fill="#04061d"/>
+  <circle cx="256" cy="256" r="240" fill="url(#vCore)" opacity="0.10"/>
+
+  <!-- outer consciousness ring -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="url(#vRing)" stroke-width="6" opacity="0.85"/>
+  <circle cx="256" cy="256" r="186" fill="none" stroke="url(#vRing)" stroke-width="2" opacity="0.35" stroke-dasharray="3 10"/>
+
+  <!-- orbiting mesh nodes (the federation) -->
+  <g filter="url(#vGlow)">
+    <circle cx="256" cy="46"  r="10" fill="#00e5e8"/>
+    <circle cx="438" cy="361" r="9"  fill="#9a5cff"/>
+    <circle cx="74"  cy="361" r="9"  fill="#5b8cff"/>
+  </g>
+  <path d="M256 46 L438 361 L74 361 Z" fill="none" stroke="url(#vRing)" stroke-width="1.5" opacity="0.22"/>
+
+  <!-- the prism eye: a faceted V refracting a beam of light into the core -->
+  <g filter="url(#vGlow)">
+    <path d="M256 120 L360 330 L256 392 L152 330 Z" fill="url(#vCore)" opacity="0.92"/>
+    <path d="M256 120 L256 392 L152 330 Z" fill="#1a1147" opacity="0.55"/>
+    <path d="M256 120 L360 330 L256 256 Z" fill="#ffffff" opacity="0.08"/>
+    <!-- refracted beam -->
+    <path d="M232 96 L280 96 L268 256 L244 256 Z" fill="url(#vBeam)"/>
+    <!-- singularity core -->
+    <circle cx="256" cy="262" r="30" fill="#ffffff"/>
+    <circle cx="256" cy="262" r="30" fill="url(#vCore)" opacity="0.55"/>
+    <circle cx="256" cy="262" r="14" fill="#ffffff"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="256" y="452" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="14" fill="#ffffff">VISION</text>
+  <text x="256" y="486" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="500" letter-spacing="7" fill="#7da0ff">METABRAIN&#160;AGI</text>
+</svg>

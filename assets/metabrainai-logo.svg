@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MetaBrainAI">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6c22e8"/>
+      <stop offset="100%" stop-color="#00c5c7"/>
+    </linearGradient>
+    <linearGradient id="mNode" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bfa8ff"/>
+      <stop offset="100%" stop-color="#00e5e8"/>
+    </linearGradient>
+    <filter id="mGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- rounded-hex badge -->
+  <path d="M256 28 L420 122 V300 L256 484 L92 300 V122 Z" fill="#05071f"/>
+  <path d="M256 28 L420 122 V300 L256 484 L92 300 V122 Z" fill="none" stroke="url(#mbg)" stroke-width="7" opacity="0.9"/>
+
+  <!-- neural brain: two lobes of connected nodes -->
+  <g stroke="url(#mbg)" stroke-width="3.5" opacity="0.7" fill="none">
+    <path d="M150 250 C150 170 210 140 256 158 C302 140 362 170 362 250 C362 320 312 360 256 350 C200 360 150 320 150 250 Z"/>
+    <line x1="256" y1="158" x2="256" y2="350"/>
+    <path d="M188 210 C220 200 236 224 256 222 C276 224 292 200 324 210"/>
+    <path d="M176 286 C214 300 236 280 256 284 C276 280 298 300 336 286"/>
+  </g>
+  <g filter="url(#mGlow)" fill="url(#mNode)">
+    <circle cx="256" cy="158" r="13"/><circle cx="256" cy="350" r="11"/>
+    <circle cx="188" cy="210" r="10"/><circle cx="324" cy="210" r="10"/>
+    <circle cx="176" cy="286" r="10"/><circle cx="336" cy="286" r="10"/>
+    <circle cx="256" cy="252" r="16" fill="#ffffff"/>
+  </g>
+
+  <text x="256" y="436" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="2" fill="#ffffff">MetaBrain<tspan fill="#00e5e8">AI</tspan></text>
+</svg>

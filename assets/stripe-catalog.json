@@ -1,0 +1,21 @@
+{
+  "_comment": "MetaBrainAGI Stripe catalog (scaffold). Prices are PROPOSED USD. To go live, provide a Stripe restricted key (Products/Prices/PaymentLinks: write) OR create these Products/Prices in the Stripe dashboard and paste the price_id + payment_link. NO live financial keys are stored here (policy).",
+  "currency": "usd",
+  "mode": "scaffold",
+  "products": [
+    { "key": "visionprime",            "name": "VisionPRIME",            "pro_monthly": 9900,  "license_one_time": 149000, "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "vp-sia",                 "name": "VP-SIA",                 "pro_monthly": 7900,  "license_one_time": 119000, "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionrustify",          "name": "VisionRustify",          "pro_monthly": 4900,  "license_one_time": 69000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionomnicollab",       "name": "VisionOmniCollab",       "pro_monthly": 5900,  "license_one_time": 89000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionfusion",           "name": "VisionFusion",           "pro_monthly": 3900,  "license_one_time": 59000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionsynergy",          "name": "VisionSynergy",          "pro_monthly": 3900,  "license_one_time": 59000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visioncagrag",           "name": "VisionCAGRAG",           "pro_monthly": 5900,  "license_one_time": 89000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionperceptionvoice",  "name": "VisionPerceptionVoice",  "pro_monthly": 4900,  "license_one_time": 69000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionprime-dispatch",   "name": "VisionPrime-Dispatch",   "pro_monthly": 6900,  "license_one_time": 99000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visioninfratools",       "name": "VisionInfraTools",       "pro_monthly": 3900,  "license_one_time": 59000,  "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "visionopensoc-pro",      "name": "VisionOpenSOC-Pro",      "pro_monthly": 12900, "license_one_time": 0,      "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" },
+    { "key": "vision-suite",           "name": "Vision Suite (all Pro)", "pro_monthly": 34900, "license_one_time": 490000, "stripe_product_id": "", "price_id_pro": "", "price_id_license": "", "payment_link_pro": "", "payment_link_license": "" }
+  ],
+  "free": ["visionopensoc", "visionskills"],
+  "amounts_in": "cents"
+}
