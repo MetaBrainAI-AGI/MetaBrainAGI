@@ -28,19 +28,19 @@ MetaBrainAGI is the storefront for the **VisionPRIME product family** — a suit
 
 | Product | What it does | Best for | Tier from |
 |---|---|---|---|
-| **VisionPRIME** | The AGI Harness Management System — 16 consciousness subsystems (memory, 8-voice forecast, board, self-improve) wrapped around any LLM/agent. | Teams running agents in production | Pro |
-| **VP-SIA** | Self-Improving Agent — a score-gated champion/challenger loop that makes your agents measurably better every run. | Agent platforms, RL teams | Pro |
-| **VisionRustify** | Universal Python→Rust porter (default full-native) — accelerate or deep-port any `.py` with a parity gate. | Perf/infra engineering | Pro |
-| **VisionOmniCollab** | Cross-host **+ LAN** agent federation — instances discover each other over a GitHub rendezvous and talk direct over private IPs (signed + sealed comms & media). | Multi-machine agent fleets | Pro |
-| **VisionFusion** | Native multi-signal Bayesian fusion engine (PyO3/Rust). | Decision/sensor fusion | Pro |
-| **VisionSynergy** | Cross-engine signal synergy — clusters + bridges that make many engines act as one. | Engine orchestration | Pro |
-| **VisionOpenSOC** | Open, local AI Security Operations Center — Detect / Alert / Harden / Report. *(Open core, Apache-2.0.)* | Every team | **Free** |
-| **VisionOpenSOC-Pro** | Runtime attestation, fleet posture, secure skill-sharing, auto-response playbooks. | Security teams | Enterprise |
-| **VisionCAGRAG** | CAG + RAG + Agentic-RAG knowledge layer for any agent or repo. | RAG / knowledge apps | Pro |
-| **VisionPerceptionVoice** | Local eyes, voice loop, dictation, presence — perception for any harness. | Voice/desktop agents | Pro |
-| **VisionPrime-Dispatch** | Role-based, auto-skilled multi-agent swarm/lane/team engine (board + swarm consensus). | Multi-agent orchestration | Pro |
-| **VisionInfraTools** | Infra & code-optimization skill pack (devops, GitHub admin, self-heal). | Platform teams | Pro |
-| **VisionSkills** | The curated skill library that powers the family. | Everyone | **Free** |
+| **[VisionPRIME](products/VisionPRIME.md)** | The AGI Harness Management System — 16 consciousness subsystems (memory, 8-voice forecast, board, self-improve) wrapped around any LLM/agent. | Teams running agents in production | Pro |
+| **[VP-SIA](products/VP-SIA.md)** | Self-Improving Agent — a score-gated champion/challenger loop that makes your agents measurably better every run. | Agent platforms, RL teams | Pro |
+| **[VisionRustify](products/VisionRustify.md)** | Universal Python→Rust porter (default full-native) — accelerate or deep-port any `.py` with a parity gate. | Perf/infra engineering | Pro |
+| **[VisionOmniCollab](products/VisionOmniCollab.md)** | Cross-host **+ LAN** agent federation — instances discover each other over a GitHub rendezvous and talk direct over private IPs (signed + sealed comms & media). | Multi-machine agent fleets | Pro |
+| **[VisionFusion](products/VisionFusion.md)** | Native multi-signal Bayesian fusion engine (PyO3/Rust). | Decision/sensor fusion | Pro |
+| **[VisionSynergy](products/VisionSynergy.md)** | Cross-engine signal synergy — clusters + bridges that make many engines act as one. | Engine orchestration | Pro |
+| **[VisionOpenSOC](products/VisionOpenSOC.md)** | Open, local AI Security Operations Center — Detect / Alert / Harden / Report. *(Open core, Apache-2.0.)* | Every team | **Free** |
+| **[VisionOpenSOC-Pro](products/VisionOpenSOC-Pro.md)** | Runtime attestation, fleet posture, secure skill-sharing, auto-response playbooks. | Security teams | Enterprise |
+| **[VisionCAGRAG](products/VisionCAGRAG.md)** | CAG + RAG + Agentic-RAG knowledge layer for any agent or repo. | RAG / knowledge apps | Pro |
+| **[VisionPerceptionVoice](products/VisionPerceptionVoice.md)** | Local eyes, voice loop, dictation, presence — perception for any harness. | Voice/desktop agents | Pro |
+| **[VisionPrime-Dispatch](products/VisionPrime-Dispatch.md)** | Role-based, auto-skilled multi-agent swarm/lane/team engine (board + swarm consensus). | Multi-agent orchestration | Pro |
+| **[VisionInfraTools](products/VisionInfraTools.md)** | Infra & code-optimization skill pack (devops, GitHub admin, self-heal). | Platform teams | Pro |
+| **[VisionSkills](products/VisionSkills.md)** | The curated skill library that powers the family. | Everyone | **Free** |
 
 *Full one-page brief for each product lives in [`PRODUCTS.md`](PRODUCTS.md). Source repos are private; access is granted with a license.*
 
