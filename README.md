@@ -46,6 +46,19 @@ MetaBrainAGI is the storefront for the **VisionPRIME product family** — a suit
 
 ---
 
+## 🚀 Consumer Apps
+
+Live products built on MetaBrainAGI — for people, not just developers:
+
+| App | What it is | Link |
+|---|---|---|
+| **DividendCapture** | Autonomous AI dividend-capture trading platform. 200+ AI engines, a 47-gate conviction system, and multi-broker execution across 30+ brokerages turn the dividend calendar into disciplined, risk-gated income — fully automated, 24/5. | **[dividendcapture.ai](https://dividendcapture.ai)** |
+| **FamilyUnit** | MetaBrainAGI for your family — a private, AI-powered command center that organizes schedules, finances, tasks, and well-being for the whole household. Calm, secure, genuinely helpful. | **[familyunit.ai](https://familyunit.ai)** |
+
+> Corporate site: **[metabrainagi.ai](https://metabrainagi.ai)**
+
+---
+
 ## ⚡ Why MetaBrainAGI
 
 - **Rust-first compute.** Hot paths are native Rust (`metabrain_core`), parallel by default. No Python in the compute loop.
