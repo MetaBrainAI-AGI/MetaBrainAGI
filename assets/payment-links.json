@@ -1,166 +1,104 @@
 {
-  "_comment": "MetaBrainAGI Stripe catalog (scaffold). Prices are PROPOSED USD. To go live, provide a Stripe restricted key (Products/Prices/PaymentLinks: write) OR create these Products/Prices in the Stripe dashboard and paste the price_id + payment_link. NO live financial keys are stored here (policy).",
-  "currency": "usd",
   "mode": "live",
-  "products": [
-    {
-      "key": "visionprime",
+  "currency": "usd",
+  "products": {
+    "visionprime": {
       "name": "VisionPRIME",
       "pro_monthly": 9900,
       "license_one_time": 149000,
-      "stripe_product_id": "prod_Ueuw9YBRp2adOZ",
-      "price_id_pro": "price_1Tfb6pCh1OMlReMDdpJlv1Fq",
-      "price_id_license": "price_1Tfb6qCh1OMlReMDL2FnLnBT",
       "payment_link_pro": "https://buy.stripe.com/9B6eVc7hK6a1a24bCPb7y0j",
       "payment_link_license": "https://buy.stripe.com/7sYaEW7hK41Tgqs8qDb7y0k"
     },
-    {
-      "key": "vp-sia",
+    "vp-sia": {
       "name": "VP-SIA",
       "pro_monthly": 7900,
       "license_one_time": 119000,
-      "stripe_product_id": "prod_Ud3nODTJx7PAsm",
-      "price_id_pro": "price_1Tfb6sCh1OMlReMDcVLCrQPS",
-      "price_id_license": "price_1Tfb6sCh1OMlReMDLZBYjT3k",
       "payment_link_pro": "https://buy.stripe.com/00weVcfOg7e5fmoayLb7y0l",
       "payment_link_license": "https://buy.stripe.com/3cI4gygSkcyp8Y06ivb7y0m"
     },
-    {
-      "key": "visionrustify",
+    "visionrustify": {
       "name": "VisionRustify",
       "pro_monthly": 4900,
       "license_one_time": 69000,
-      "stripe_product_id": "prod_Ud3n3vFf77BYw2",
-      "price_id_pro": "price_1Tfb6uCh1OMlReMDZ3zSArWZ",
-      "price_id_license": "price_1Tfb6uCh1OMlReMDAU9PGCFB",
       "payment_link_pro": "https://buy.stripe.com/6oU5kC6dGcyp0rudKXb7y0n",
       "payment_link_license": "https://buy.stripe.com/5kQ28q9pSgOF7TW9uHb7y0o"
     },
-    {
-      "key": "visionomnicollab",
+    "visionomnicollab": {
       "name": "VisionOmniCollab",
       "pro_monthly": 5900,
       "license_one_time": 89000,
-      "stripe_product_id": "prod_Ueuw4OmjQQcSVX",
-      "price_id_pro": "price_1Tfb6xCh1OMlReMDZZWDK5SY",
-      "price_id_license": "price_1Tfb6xCh1OMlReMDOL5I2p43",
       "payment_link_pro": "https://buy.stripe.com/4gMcN47hK2XPa24eP1b7y0p",
       "payment_link_license": "https://buy.stripe.com/9B628qgSkcypeikcGTb7y0q"
     },
-    {
-      "key": "visionfusion",
+    "visionfusion": {
       "name": "VisionFusion",
       "pro_monthly": 3900,
       "license_one_time": 59000,
-      "stripe_product_id": "prod_Ud3nXlD6RIB8Tt",
-      "price_id_pro": "price_1Tfb6zCh1OMlReMDkuhruSWZ",
-      "price_id_license": "price_1Tfb70Ch1OMlReMDT5h73uUH",
       "payment_link_pro": "https://buy.stripe.com/bJe28q59Ccypa24eP1b7y0r",
       "payment_link_license": "https://buy.stripe.com/cNi7sK8lO55Xeik9uHb7y0s"
     },
-    {
-      "key": "visionsynergy",
+    "visionsynergy": {
       "name": "VisionSynergy",
       "pro_monthly": 3900,
       "license_one_time": 59000,
-      "stripe_product_id": "prod_Ud3nT4hKxm7jkX",
-      "price_id_pro": "price_1Tfb71Ch1OMlReMD3Y4NFpG1",
-      "price_id_license": "price_1Tfb72Ch1OMlReMDfW4qvWnY",
       "payment_link_pro": "https://buy.stripe.com/14AcN4by041T5LOfT5b7y0t",
       "payment_link_license": "https://buy.stripe.com/7sYcN4atW6a10ruayLb7y0u"
     },
-    {
-      "key": "visioncagrag",
+    "visioncagrag": {
       "name": "VisionCAGRAG",
       "pro_monthly": 5900,
       "license_one_time": 89000,
-      "stripe_product_id": "prod_Ud3nejBJMyR4Gn",
-      "price_id_pro": "price_1Tfb74Ch1OMlReMDyIIWWoWE",
-      "price_id_license": "price_1Tfb74Ch1OMlReMDb3oBT1zX",
       "payment_link_pro": "https://buy.stripe.com/00w8wOfOgeGxdeg22fb7y0v",
       "payment_link_license": "https://buy.stripe.com/00w4gy0TmgOF0rueP1b7y0w"
     },
-    {
-      "key": "visionperceptionvoice",
+    "visionperceptionvoice": {
       "name": "VisionPerceptionVoice",
       "pro_monthly": 4900,
       "license_one_time": 69000,
-      "stripe_product_id": "prod_Ueux89byc5gTyz",
-      "price_id_pro": "price_1Tfb76Ch1OMlReMD3AzZNZKu",
-      "price_id_license": "price_1Tfb76Ch1OMlReMD5Hz1K7R1",
       "payment_link_pro": "https://buy.stripe.com/5kQ3cu45yeGx8Y08qDb7y0x",
       "payment_link_license": "https://buy.stripe.com/eVq9ASeKcdCt1vygX9b7y0y"
     },
-    {
-      "key": "visionsight",
+    "visionsight": {
       "name": "VisionSight",
       "pro_monthly": 3900,
       "license_one_time": 59000,
-      "stripe_product_id": "prod_Uev69UQPLhwNcH",
-      "price_id_pro": "price_1TfbGcCh1OMlReMDKoO8Ol3a",
-      "price_id_license": "price_1TfbGcCh1OMlReMDNiLQpvgW",
       "payment_link_pro": "https://buy.stripe.com/dRm7sKfOgcypeik8qDb7y0G",
       "payment_link_license": "https://buy.stripe.com/dRm9AScC46a1fmo4anb7y0H"
     },
-    {
-      "key": "visionvoice",
+    "visionvoice": {
       "name": "VisionVoice",
       "pro_monthly": 3900,
       "license_one_time": 59000,
-      "stripe_product_id": "prod_Uev6n6DbUXnt8g",
-      "price_id_pro": "price_1TfbGeCh1OMlReMDY73WHrQ9",
-      "price_id_license": "price_1TfbGeCh1OMlReMDnJCgoQzE",
       "payment_link_pro": "https://buy.stripe.com/3cIbJ0dG88i9gqsdKXb7y0I",
       "payment_link_license": "https://buy.stripe.com/8x24gycC4gOF5LOgX9b7y0J"
     },
-    {
-      "key": "visionprime-dispatch",
+    "visionprime-dispatch": {
       "name": "VisionPrime-Dispatch",
       "pro_monthly": 6900,
       "license_one_time": 99000,
-      "stripe_product_id": "prod_UeuxEiw3fKROFo",
-      "price_id_pro": "price_1Tfb78Ch1OMlReMDbacbb1oc",
-      "price_id_license": "price_1Tfb78Ch1OMlReMDmFrjIbmE",
       "payment_link_pro": "https://buy.stripe.com/4gMfZgfOgfKBgqs22fb7y0z",
       "payment_link_license": "https://buy.stripe.com/6oU7sKby055Xa24eP1b7y0A"
     },
-    {
-      "key": "visioninfratools",
+    "visioninfratools": {
       "name": "VisionInfraTools",
       "pro_monthly": 3900,
       "license_one_time": 59000,
-      "stripe_product_id": "prod_Ud3n0nNtI3n0uE",
-      "price_id_pro": "price_1Tfb7ACh1OMlReMDeYN1HpUf",
-      "price_id_license": "price_1Tfb7BCh1OMlReMDtn5ySW7j",
       "payment_link_pro": "https://buy.stripe.com/14A3cu31udCt0rudKXb7y0B",
       "payment_link_license": "https://buy.stripe.com/9B68wOcC4eGxa248qDb7y0C"
     },
-    {
-      "key": "visionopensoc-pro",
+    "visionopensoc-pro": {
       "name": "VisionOpenSOC-Pro",
       "pro_monthly": 12900,
       "license_one_time": 0,
-      "stripe_product_id": "prod_UeuxpV9rMfoaFp",
-      "price_id_pro": "price_1Tfb7DCh1OMlReMDoiISAGDK",
-      "price_id_license": "",
       "payment_link_pro": "https://buy.stripe.com/9B63cueKc0PH1vygX9b7y0D",
       "payment_link_license": ""
     },
-    {
-      "key": "vision-suite",
+    "vision-suite": {
       "name": "Vision Suite (all Pro)",
       "pro_monthly": 34900,
       "license_one_time": 490000,
-      "stripe_product_id": "prod_UeuxP5fVtqmSdX",
-      "price_id_pro": "price_1Tfb7ECh1OMlReMDHqn6gvQq",
-      "price_id_license": "price_1Tfb7ECh1OMlReMDmLxNKtsz",
       "payment_link_pro": "https://buy.stripe.com/dRm4gy1Xq8i9cac22fb7y0E",
       "payment_link_license": "https://buy.stripe.com/aFa8wO1Xq1TL8Y0fT5b7y0F"
     }
-  ],
-  "free": [
-    "visionopensoc",
-    "visionskills"
-  ],
-  "amounts_in": "cents"
+  }
 }
