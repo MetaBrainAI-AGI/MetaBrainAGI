@@ -194,11 +194,12 @@ function vpRenderCards(cat){
   const buy = (n,t,pr)=>{
     const s = slug(n), cp = C[s] || {};
     const link = cp.payment_link_pro || cp.payment_link_license || '';
-    if (FREE.has(s) || t==='Free')
-      return `<a class="btn ghost buy" style="margin-top:14px" href="https://github.com/MetaBrainAI-AGI/${n}" target="_blank" rel="noopener">Get it free →</a>`;
+    const brief = `https://github.com/MetaBrainAI-AGI/MetaBrainAGI/blob/main/products/${n}.md`;
     if (link)
       return `<a class="btn buy" style="margin-top:14px" href="${link}" target="_blank" rel="noopener">Buy ${pr} →</a>`;
-    return `<a class="btn ghost buy" style="margin-top:14px" href="mailto:hello@metabrain.ai?subject=Access%20request:%20${encodeURIComponent(n)}">Request access →</a>`;
+    if (FREE.has(s) || t==='Free')
+      return `<a class="btn ghost buy" style="margin-top:14px" href="${brief}" target="_blank" rel="noopener">Get it free →</a>`;
+    return `<a class="btn buy" style="margin-top:14px" href="${brief}" target="_blank" rel="noopener">Learn more →</a>`;
   };
   document.getElementById('cards').innerHTML = P.map(([n,d,t,pr])=>`
    <div class="card"><img class="icon" src="assets/icons/${slug(n)}.png" alt="${n}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/vision-icon.png'"/>
