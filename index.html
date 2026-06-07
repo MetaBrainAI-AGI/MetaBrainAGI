@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MetaBrainAGI — The autonomous AGI operating layer</title>
+<meta name="description" content="MetaBrainAGI — a family of Rust-native, self-improving intelligence products. VisionPRIME, VP-SIA, VisionRustify, VisionOmniCollab and more." />
+<style>
+  :root{
+    --canvas:#02041f; --card:#070d25; --card2:#0b1430; --line:#1b2550;
+    --violet:#804efa; --violet2:#6c22e8; --teal:#00c5c7; --cyan:#00e5e8;
+    --ink:#eaf0ff; --muted:#8aa0d8; --faint:#5f6fa6;
+    --grad:linear-gradient(120deg,#6c22e8 0%,#804efa 45%,#00c5c7 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--canvas);color:var(--ink);font-family:'Segoe UI',Inter,system-ui,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .g1{width:520px;height:520px;background:#5b1fd0;top:-160px;left:-120px}
+  .g2{width:460px;height:460px;background:#0090a8;top:280px;right:-160px;opacity:.35}
+  header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
+  .brand svg{width:40px;height:40px;filter:drop-shadow(0 0 10px rgba(128,78,250,.6))}
+  nav a{color:var(--muted);margin-left:26px;font-size:14px;font-weight:600}
+  nav a:hover{color:var(--ink)}
+  .btn{background:var(--grad);color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:14px;display:inline-block;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(108,34,232,.35);transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none}
+  /* hero */
+  .hero{position:relative;z-index:2;text-align:center;padding:90px 0 60px}
+  .hero .mark{width:120px;height:120px;margin:0 auto 26px;filter:drop-shadow(0 0 26px rgba(0,197,199,.45))}
+  .pill{display:inline-block;border:1px solid var(--line);background:rgba(128,78,250,.08);color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:22px}
+  h1{font-size:clamp(38px,6vw,68px);line-height:1.05;font-weight:800;letter-spacing:-1px}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:clamp(16px,2.2vw,21px);max-width:680px;margin:22px auto 34px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .stats{display:flex;gap:42px;justify-content:center;flex-wrap:wrap;margin-top:54px;color:var(--muted);font-size:14px}
+  .stats b{display:block;font-size:30px;color:var(--ink);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  /* sections */
+  section{position:relative;z-index:2;padding:64px 0}
+  .eyebrow{color:var(--teal);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;text-align:center}
+  h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin:8px 0 8px}
+  .lead{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .18s,border-color .18s}
+  .card:hover{transform:translateY(-4px);border-color:#33408a}
+  .card .tag{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1px}
+  .card h3{font-size:19px;margin:10px 0 8px;font-weight:800}
+  .card p{color:var(--muted);font-size:14.5px}
+  .card .price{margin-top:16px;font-size:13px;color:var(--faint)}
+  .card .price b{color:var(--ink);font-size:16px}
+  .free{color:var(--cyan)!important}
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:920px;margin:0 auto}
+  .tier{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:20px;padding:30px}
+  .tier.feat{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 20px 60px rgba(108,34,232,.25)}
+  .tier h3{font-size:20px}.tier .amt{font-size:40px;font-weight:800;margin:14px 0}
+  .tier .amt span{font-size:15px;color:var(--muted);font-weight:500}
+  .tier ul{list-style:none;margin:18px 0;color:var(--muted);font-size:14px}
+  .tier li{padding:7px 0;border-bottom:1px solid rgba(27,37,80,.5)}
+  .tier li::before{content:"▸ ";color:var(--teal)}
+  /* cta band */
+  .band{background:var(--grad);border-radius:24px;padding:54px;text-align:center;margin:30px 0}
+  .band h2{color:#fff}.band p{color:rgba(255,255,255,.85);margin:10px 0 24px}
+  .band .btn{background:#fff;color:#3a1f8f}
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:34px 0;color:var(--faint);font-size:13px;text-align:center}
+  .note{text-align:center;color:var(--faint);font-size:12px;margin-top:10px}
+  .card .icon{width:56px;height:56px;border-radius:14px;margin-bottom:10px;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+  .vidsec{position:relative;z-index:2;padding:30px 0 10px}
+  .vidwrap{max-width:940px;margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(108,34,232,.3)}
+  .vidwrap video{width:100%;display:block}
+</style>
+<link rel="icon" type="image/png" href="assets/icons/vision-icon.png" />
+<meta property="og:title" content="MetaBrainAGI — The autonomous AGI operating layer" />
+<meta property="og:description" content="A family of Rust-native, self-improving intelligence products." />
+<meta property="og:image" content="assets/icons/metabrainagi-icon.png" />
+<meta property="og:type" content="website" />
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="c" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#bfa8ff"/><stop offset="40%" stop-color="#804efa"/><stop offset="100%" stop-color="#3a1f8f"/></radialGradient><linearGradient id="r" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5e8"/><stop offset="100%" stop-color="#9a5cff"/></linearGradient></defs><circle cx="256" cy="256" r="230" fill="#04061d"/><circle cx="256" cy="256" r="206" fill="none" stroke="url(#r)" stroke-width="7"/><path d="M256 120 L360 330 L256 392 L152 330 Z" fill="url(#c)"/><circle cx="256" cy="262" r="26" fill="#fff"/></svg>
+    MetaBrain<span style="color:var(--cyan)">AGI</span>
+  </div>
+  <nav>
+    <a href="#products">Products</a><a href="#pricing">Pricing</a><a href="#why">Why</a>
+    <a href="https://metabrainagi.ai" target="_blank" rel="noopener">metabrainagi.ai ↗</a>
+    <a class="btn ghost" href="mailto:hello@metabrain.ai">Request access</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <svg class="mark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="c2" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#bfa8ff"/><stop offset="40%" stop-color="#804efa"/><stop offset="100%" stop-color="#3a1f8f"/></radialGradient><linearGradient id="r2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5e8"/><stop offset="55%" stop-color="#5b8cff"/><stop offset="100%" stop-color="#9a5cff"/></linearGradient></defs><circle cx="256" cy="256" r="232" fill="#04061d"/><circle cx="256" cy="256" r="208" fill="none" stroke="url(#r2)" stroke-width="6"/><circle cx="256" cy="46" r="10" fill="#00e5e8"/><circle cx="438" cy="361" r="9" fill="#9a5cff"/><circle cx="74" cy="361" r="9" fill="#5b8cff"/><path d="M256 120 L360 330 L256 392 L152 330 Z" fill="url(#c2)"/><path d="M256 120 L256 392 L152 330 Z" fill="#1a1147" opacity=".5"/><circle cx="256" cy="262" r="30" fill="#fff"/><circle cx="256" cy="262" r="14" fill="#fff"/></svg>
+  <div class="pill">Private launch · Rust-native · Self-improving</div>
+  <h1>The autonomous <span class="grad">AGI operating layer.</span></h1>
+  <p class="sub">A family of Rust-native, self-improving intelligence products — sold individually, designed to compose into one mind. Memory, foresight, security, and cross-host collaboration for any app or agent.</p>
+  <div class="cta-row">
+    <a class="btn" href="#products">Explore products</a>
+    <a class="btn ghost" href="#pricing">See pricing</a>
+  </div>
+  <div class="stats">
+    <div><b>12</b>products</div><div><b>16</b>consciousness subsystems</div><div><b>100%</b>Rust compute</div><div><b>0</b>secrets shipped</div>
+  </div>
+</div>
+</div>
+
+<section class="vidsec"><div class="wrap"><div class="vidwrap">
+  <video src="assets/brand-video.mp4" autoplay muted loop playsinline poster="assets/icons/vision-icon.png"></video>
+</div></div></section>
+
+<section id="products"><div class="wrap">
+  <div class="eyebrow">The family</div><h2>One architecture. Twelve products.</h2>
+  <p class="lead">Buy the piece you need today; compose the whole mind tomorrow. Every product snaps into the others through a shared synergy + fusion bus.</p>
+  <div class="grid" id="cards"></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <div class="eyebrow">Why MetaBrainAGI</div><h2>Proven, defensible, composable.</h2>
+  <div class="grid" style="margin-top:32px">
+    <div class="card"><h3>⚡ Rust-first compute</h3><p>Hot paths are native Rust (<code>metabrain_core</code>), parallel by default. No Python in the compute loop.</p></div>
+    <div class="card"><h3>🧠 A real consciousness stack</h3><p>Symbolic verification, premortem simulation, 8-voice forecasting, a Genius Board, and online learning — layered on any LLM.</p></div>
+    <div class="card"><h3>♻️ Self-improving</h3><p>VP-SIA tunes the system on its own outcomes with a score-gated champion/challenger loop. It gets better while you sleep.</p></div>
+    <div class="card"><h3>🔒 Secure & defensible</h3><p>Secret-free packaging, sealed cross-host coordination, and patent-backed core methods you license with confidence.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <div class="eyebrow">Pricing</div><h2>Three tiers across the family.</h2>
+  <p class="lead">Open-core where it helps adoption; per-seat Pro for teams; Enterprise for fleets and compliance.</p>
+  <div class="tiers">
+    <div class="tier"><h3>Free</h3><div class="amt">$0</div><p style="color:var(--muted)">Open-core + evaluation.</p><ul><li>VisionOpenSOC + VisionSkills</li><li>Community support</li><li>Public releases</li></ul><a class="btn ghost" href="mailto:hello@metabrain.ai">Get started</a></div>
+    <div class="tier feat"><h3>Pro</h3><div class="amt">$99<span> / seat / mo</span></div><p style="color:var(--muted)">Per-product, or the Suite at $349.</p><ul><li>Every Pro product</li><li>Signed releases</li><li>Email support, 2-biz-day</li></ul><a class="btn" href="mailto:hello@metabrain.ai">Start Pro</a></div>
+    <div class="tier"><h3>Enterprise</h3><div class="amt">Custom</div><p style="color:var(--muted)">Fleets, regulated, mission-critical.</p><ul><li>Runtime attestation</li><li>SOC2 / ISO / HIPAA change-control</li><li>Private support + SLA</li></ul><a class="btn ghost" href="mailto:hello@metabrain.ai">Contact us</a></div>
+  </div>
+  <p class="note">Prices proposed for private launch — final numbers may change. Checkout via Stripe.</p>
+</div></section>
+
+<section><div class="wrap"><div class="band">
+  <h2>Ready to build with a mind, not just a model?</h2>
+  <p>MetaBrainAGI is in private launch. Request a license or a demo.</p>
+  <a class="btn" href="mailto:hello@metabrain.ai">Request access →</a>
+</div></div></section>
+
+<footer><div class="wrap">
+  Corporate site: <a href="https://metabrainagi.ai" target="_blank" rel="noopener" style="color:var(--cyan);font-weight:600">metabrainagi.ai</a><br><br>
+  © MetaBrain AI — MetaBrainAGI. All rights reserved. VisionPRIME, VisionRustify, VisionFusion, VisionSynergy, VisionOmniCollab and the Vision mark are trademarks of MetaBrain AI.
+</div></footer>
+
+<script>
+const P=[
+ ["VisionPRIME","AGI Harness Management System — 16 consciousness subsystems around any LLM.","Pro","$99/mo"],
+ ["VP-SIA","Self-Improving Agent — score-gated champion/challenger loop.","Pro","$79/mo"],
+ ["VisionRustify","Universal Python→Rust porter (accelerate or deep-port), ONNX-default.","Pro","$49/mo"],
+ ["VisionOmniCollab","Cross-host + LAN agent federation — direct private-IP comms & media.","Pro","$59/mo"],
+ ["VisionFusion","Native Bayesian multi-signal fusion engine (PyO3/Rust).","Pro","$39/mo"],
+ ["VisionSynergy","Cross-engine signal synergy — many engines act as one.","Pro","$39/mo"],
+ ["VisionOpenSOC","Open AI Security Operations Center — Detect/Alert/Harden/Report.","Free","Apache-2.0"],
+ ["VisionOpenSOC-Pro","Runtime attestation, fleet posture, auto-response playbooks.","Enterprise","$129/mo"],
+ ["VisionCAGRAG","CAG + RAG + Agentic-RAG knowledge layer for any agent/repo.","Pro","$59/mo"],
+ ["VisionPerceptionVoice","Local eyes, voice loop, dictation, presence.","Pro","$49/mo"],
+ ["VisionPrime-Dispatch","Role-based multi-agent swarm/lane/team engine.","Pro","$69/mo"],
+ ["VisionInfraTools","Infra & code-optimization skill pack.","Pro","$39/mo"],
+];
+const slug = s => s.toLowerCase().replace(/\s+/g,'').replace(/[^a-z0-9-]/g,'');
+document.getElementById('cards').innerHTML = P.map(([n,d,t,pr])=>`
+ <div class="card"><img class="icon" src="assets/icons/${slug(n)}.png" alt="${n}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/vision-icon.png'"/>
+ <div class="tag">${t}</div><h3>${n}</h3><p>${d}</p>
+ <div class="price"><b class="${t==='Free'?'free':''}">${pr}</b></div></div>`).join('');
+</script>
+</body>
+</html>
