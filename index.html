@@ -167,10 +167,28 @@ const P=[
  ["VisionInfraTools","Infra & code-optimization skill pack.","Pro","$39/mo"],
 ];
 const slug = s => s.toLowerCase().replace(/\s+/g,'').replace(/[^a-z0-9-]/g,'');
-document.getElementById('cards').innerHTML = P.map(([n,d,t,pr])=>`
- <div class="card"><img class="icon" src="assets/icons/${slug(n)}.png" alt="${n}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/vision-icon.png'"/>
- <div class="tag">${t}</div><h3>${n}</h3><p>${d}</p>
- <div class="price"><b class="${t==='Free'?'free':''}">${pr}</b></div></div>`).join('');
+// Purchase funnel: read assets/stripe-catalog.json -> a real Buy button per card.
+// payment_link_pro present -> Stripe checkout; free -> repo; else -> Request access (graceful).
+function vpRenderCards(cat){
+  cat = cat || {};
+  const C = {}; (cat.products||[]).forEach(p=>{ C[p.key]=p; });
+  const FREE = new Set(cat.free||[]);
+  const buy = (n,t,pr)=>{
+    const s = slug(n), cp = C[s] || {};
+    const link = cp.payment_link_pro || cp.payment_link_license || '';
+    if (FREE.has(s) || t==='Free')
+      return `<a class="btn ghost buy" style="margin-top:14px" href="https://github.com/MetaBrainAI-AGI/${n}" target="_blank" rel="noopener">Get it free →</a>`;
+    if (link)
+      return `<a class="btn buy" style="margin-top:14px" href="${link}" target="_blank" rel="noopener">Buy ${pr} →</a>`;
+    return `<a class="btn ghost buy" style="margin-top:14px" href="mailto:hello@metabrain.ai?subject=Access%20request:%20${encodeURIComponent(n)}">Request access →</a>`;
+  };
+  document.getElementById('cards').innerHTML = P.map(([n,d,t,pr])=>`
+   <div class="card"><img class="icon" src="assets/icons/${slug(n)}.png" alt="${n}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/vision-icon.png'"/>
+   <div class="tag">${t}</div><h3>${n}</h3><p>${d}</p>
+   <div class="price"><b class="${t==='Free'?'free':''}">${pr}</b></div>
+   ${buy(n,t,pr)}</div>`).join('');
+}
+fetch('assets/stripe-catalog.json',{cache:'no-store'}).then(r=>r.ok?r.json():{}).then(vpRenderCards).catch(()=>vpRenderCards({}));
 </script>
 </body>
 </html>
